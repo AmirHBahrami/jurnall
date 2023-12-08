@@ -38,9 +38,11 @@ public final class State extends Observable{
     EVENT_ENTRY_PUT_FAILED="EVENT_ENTRY_PUT_FAILED",
     EVENT_TEST="EVENT_TEST",
     EVENT_ENTRY_UPDATED="EVENT_USER_CHANGED",
+		EVENT_NEW_FILE_SELECTED="EVENT_NEW_FILE_SELECTED",
     EVENT_NEW_PROMPT="EVENT_NEW_PROMPT",
     EVENT_CLEAR_PRMOPT="EVENT_CLEAR_PRMOPT",
     EVENT_SCENE_CHANGE="EVENT_SCENE_CHANGE",
+    EVENT_ENTRY_DELETED="EVENT_ENTRY_DELETED",
     ERROR_DATASOURCE_NOT_INITTED="ERROR_DATASOURCE_NOT_INITTED";
 
   public static void init(User u){
@@ -109,16 +111,11 @@ public final class State extends Observable{
     }
     return newE==null;
   }
-  
-  public boolean currentEntryExists(){
-    if(currentEntry==null) return false; // for the current entry
-    return this.userEntriesHandler.getEntryFile(currentEntry).exists();
-  }
 
   public void deleteCurrentEntry(){
     this.updateCurrentEntry();
     if(this.userEntriesHandler.delEntryFile(this.currentEntry))
-      super.notifyAll();
+      super.notifyAll(EVENT_ENTRY_DELETED,this.currentEntry.getTitle());
   }
 
   public void setMainController(MainController mc){

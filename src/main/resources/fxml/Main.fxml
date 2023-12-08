@@ -39,16 +39,8 @@
       </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="920.0" style="-fx-background-color: darkkhaki;" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="59.0" prefHeight="478.0" prefWidth="144.0" style="-fx-background-color: black;" vbarPolicy="NEVER">
-               <content>
-                  <ListView fx:id="filenamesListView" prefHeight="478.0" prefWidth="143.0" style="-fx-background-color: #21273e;" />
-               </content>
-            </ScrollPane>
-            <TextArea fx:id="entryEditorArea" layoutX="165.0" layoutY="59.0" prefHeight="478.0" prefWidth="730.0" promptText="write safely..." style="-fx-control-inner-background: #21273e; -fx-background-color: black; -fx-text-fill: greenyellow; -fx-prompt-text-fill: #566c4f;" wrapText="true">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </TextArea>
+						<fx:include source="FileList.fxml" />
+						<fx:include source="EditorArea.fxml" fx:id="entryEditorAreaController"/>
             <TextField fx:id="usernameField" editable="false" layoutX="14.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="144.0" promptText="Logged In As" style="-fx-control-inner-background: #566c4f; -fx-background-color: #21273e; -fx-alignment: center; -fx-text-fill: greenyellow;" text="AmirH">
                <font>
                   <Font name="Cousine Regular" size="22.0" />

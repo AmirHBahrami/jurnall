@@ -1,0 +1,8 @@
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+
+<ScrollPane fx:controller="com.amirh.jurnall.control.FileListController" hbarPolicy="NEVER" layoutX="14.0" layoutY="59.0" prefHeight="478.0" prefWidth="144.0" style="-fx-background-color: black;" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+		<content>
+				<ListView fx:id="filenamesListView" prefHeight="478.0" prefWidth="143.0" style="-fx-background-color: #21273e;" />
+		</content>
+</ScrollPane>

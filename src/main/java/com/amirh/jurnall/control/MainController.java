@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 
 import javafx.scene.layout.VBox;
 
+import com.amirh.jurnall.model.Entry;
 import com.amirh.jurnall.model.State;
 import com.amirh.jurnall.model.Observer;
 
@@ -28,15 +29,16 @@ public class MainController implements Initializable,Observer,Controller{
   @FXML private TextField titleField;
 
   @FXML private VBox filenamesListHolder;
-
-  @FXML private TextArea entryEditorArea;
+	
+	// TODO fix this fuuuuuucker
+  @FXML private TextArea entryEditorAreaController;
+	// @FXML private EditorController entryEditorAreaController;
   @FXML private TextArea promptArea;
   
+  // TODO add controller for menubar
   // TODO make these into their own controller
   @FXML private Button deleteBtn;
   @FXML private Button saveBtn;
-
-  // TODO add controller for menubar
 
   @Override
   public void initialize(URL url,ResourceBundle resourceBundle){
@@ -45,11 +47,12 @@ public class MainController implements Initializable,Observer,Controller{
     this.usernameField.setText(State.getInstance().getUserEntriesHandler().getUsername());
     this.promptArea.clear();
     this.promptArea.setText(PROMPT_TEXT);
-    // st.getDataSources().set("")
   }
 
   @Override
   public void update(String msg,Object ...datas){
+
+		Entry temp;
 
     // when notifyAll is called from state
     // by other UI components, directly
@@ -64,55 +67,36 @@ public class MainController implements Initializable,Observer,Controller{
       this.promptArea.setText(PROMPT_TEXT);
     }
 
-    else if(msg.equals(State.EVENT_ENTRY_PUT_FAILED) || msg.equals(State.EVENT_ENTRY_PUT_SUCCESS)){
+    else if(msg.equals(State.EVENT_ENTRY_PUT_FAILED) || msg.equals(State.EVENT_ENTRY_PUT_SUCCESS) || msg.equals(State.EVENT_ENTRY_DELETED) ){
       this.promptArea.clear();
-      this.promptArea.setText(PROMPT_TEXT+msg+"\n");
+			temp=State.getInstance().getCurrentEntry();
+      this.promptArea.setText(PROMPT_TEXT+msg+" : "+temp.getTitle()+"\n");
     }
+
+		else if(msg.equals(State.EVENT_ENTRY_UPDATED)){
+			this.promptArea.clear();
+			temp=State.getInstance().getCurrentEntry();
+			this.promptArea.setText(PROMPT_TEXT+"'"+temp.getTitle()+"' selected\n");
+			this.titleField.setText(temp.getTitle());
+		}
   }
   
   @FXML
   public void saveAction(){
-    State st=State.getInstance();
-    ButtonType bt=null;
-    if(st.currentEntryExists()){
-      bt=App.showConfirmBox( // I'll just ask user if he wants to change title to save a new
-      "overwrite '"+st.getCurrentEntry().getTitle()
-      +"' ?");
-      if(bt==ButtonType.OK || bt==ButtonType.YES || bt==ButtonType.FINISH)
-        st.save(); // overwrite
-      else if (bt==ButtonType.NO)
-        st.save(false); // save anew
-      else if (bt==ButtonType.CANCEL)
-        return ; // do nothing
-    }
-    else st.save();
+    State.getInstance().save();
   }
   
   @FXML
   public void deleteAction(){
-    
-    // TODO if failed -> tell user, if succeeded -> clear the textarea
     State.getInstance().deleteCurrentEntry();
   }
   
   public String getTitle(){
-    return this.titleField.getText();
+		return titleField.getText();
   }
 
   public String getText(){
-    return this.entryEditorArea.getText();
-  }
-  
-  // NOTE: when a file is deleted, simply clear the children, and call this method again
-  // TODO : edit main.fxml and add a ListView instead of vbox
-  public void showFileNames(){
-		State st=State.getInstance();
-    String[] fnames=st.getInstance().getUserEntriesHandler().getUserFilenames();
-    Label lb=null;
-    for(String str:fnames){
-      lb=new Label(str);
-      this.filenamesListHolder.getChildren().add(lb);
-    }
+		return entryEditorAreaController.getText();
   }
 
 }

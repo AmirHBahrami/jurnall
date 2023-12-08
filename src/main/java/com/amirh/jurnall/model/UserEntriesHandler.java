@@ -76,14 +76,14 @@ public class UserEntriesHandler{
   * @return String[] filenames belonging to a user
   */
   public String[] getUserFilenames(){
-    String[] fnames=null;
+		String[] fnames=null; 
     File f=new File(user.getStorageDir());
     if(f==null || !f.exists()) return null;
-    fnames=f.list();
-    for(int i=0;i<fnames.length;i++){
-      if(!fnames[i].endsWith(".hash")) // XXX can also whitelist
-        Entry.getTitleFromFilename(fnames[i]);
-    }
+    fnames=f.list((d,n)->{
+			return n.endsWith(".txt");
+		});
+    for(int i=0;i<fnames.length;i++)
+			fnames[i]=Entry.getTitleFromFilename(fnames[i]);
     return fnames; // mind the length, it might be empty!
   }
 

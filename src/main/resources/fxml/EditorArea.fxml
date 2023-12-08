@@ -1,0 +1,8 @@
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.text.Font?>
+
+<TextArea fx:controller="com.amirh.jurnall.control.EditorController" fx:id="entryEditorArea" layoutX="165.0" layoutY="59.0" prefHeight="478.0" prefWidth="730.0" promptText="write safely..." style="-fx-control-inner-background: #21273e; -fx-background-color: black; -fx-text-fill: greenyellow; -fx-prompt-text-fill: #566c4f;" wrapText="true" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  >
+	<font>
+		<Font size="21.0" />
+	</font>
+</TextArea>

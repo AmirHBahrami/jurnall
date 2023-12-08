@@ -105,6 +105,8 @@ public class App extends Application implements Observer{
   
   
   private void goToScene(String path,Controller controller){
+
+		// TODO clean the previous scene from heap
  
     // TODO p.getStylesheets().add("/MenuBar.css");
     Scene sc=toScene(path,controller);
