@@ -1,0 +1,9 @@
+#NOTE
+Sending global events through State, consists of using it's notifyAll() inherited method to just tell all componenets about the event
+
+#TODO
+- protect password String in heap of jvm from being read/written unless the program gives the permisson - this needs more research
+- write an EntryProvider class to read entries and save each entry's repository this might later be used to retrieve online shit
+
+#NOTE 
+exceptions are supposed to be caught IN CONTROLLERS , and then handled (that is, either let user know or log it)

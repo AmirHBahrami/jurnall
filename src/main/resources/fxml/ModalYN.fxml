@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="291.0" prefWidth="494.0" style="-fx-background-color: #5c0060;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="288.0" prefWidth="512.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="yesBtn" layoutX="360.0" layoutY="208.0" mnemonicParsing="false" onAction="#doYes" prefHeight="44.0" prefWidth="95.0" style="-fx-text-fill: greenyellow; -fx-background-color: #21273e;" text="YES">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button fx:id="noBtn" layoutX="51.0" layoutY="208.0" mnemonicParsing="false" onAction="#doNo" prefHeight="44.0" prefWidth="95.0" style="-fx-text-fill: red; -fx-background-color: #21273e;" text="NO">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="questionArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="169.0" prefWidth="467.0" style="-fx-control-inner-background: #21273e; -fx-background-color: black; -fx-text-fill: greenyellow;" wrapText="true" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
