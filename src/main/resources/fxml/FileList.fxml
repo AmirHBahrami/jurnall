@@ -3,6 +3,6 @@
 
 <ScrollPane fx:controller="com.amirh.jurnall.control.FileListController" hbarPolicy="NEVER" layoutX="14.0" layoutY="59.0" prefHeight="478.0" prefWidth="144.0" style="-fx-background-color: black;" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
 		<content>
-				<ListView fx:id="filenamesListView" prefHeight="478.0" prefWidth="143.0" style="-fx-background-color: #21273e;" />
+				<ListView fx:id="filenamesListView" prefHeight="478.0" prefWidth="143.0" style="-fx-background-color: #21273e; -fx-text-fill: greenyellow; -fx-control-inner-background:#21273e; -fx-selection-bar:greenyellow; -fx-selection-bar-non-focused:greenyellow;" />
 		</content>
 </ScrollPane>

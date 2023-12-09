@@ -30,10 +30,8 @@ public class MainController implements Initializable,Observer,Controller{
 
   @FXML private VBox filenamesListHolder;
 	
-	// TODO fix this fuuuuuucker
+	// TODO fix
   @FXML private TextArea entryEditorAreaController;
-	// @FXML private EditorController entryEditorAreaController;
-  @FXML private TextArea promptArea;
   
   // TODO add controller for menubar
   // TODO make these into their own controller
@@ -45,40 +43,14 @@ public class MainController implements Initializable,Observer,Controller{
     State st=State.getInstance();
     st.subscribe(this);
     this.usernameField.setText(State.getInstance().getUserEntriesHandler().getUsername());
-    this.promptArea.clear();
-    this.promptArea.setText(PROMPT_TEXT);
   }
 
   @Override
   public void update(String msg,Object ...datas){
-
-		Entry temp;
-
-    // when notifyAll is called from state
-    // by other UI components, directly
-    if(msg.equals(State.EVENT_NEW_PROMPT)){
-      if(!(datas[0] instanceof String))
-        this.promptArea.appendText(PROMPT_TEXT+"<Unreadable Message>\n");
-      this.promptArea.appendText(PROMPT_TEXT+(datas[0]+"\n"));
-    }
-
-    else if(msg.equals(State.EVENT_CLEAR_PRMOPT)){
-      this.promptArea.clear();
-      this.promptArea.setText(PROMPT_TEXT);
-    }
-
-    else if(msg.equals(State.EVENT_ENTRY_PUT_FAILED) || msg.equals(State.EVENT_ENTRY_PUT_SUCCESS) || msg.equals(State.EVENT_ENTRY_DELETED) ){
-      this.promptArea.clear();
-			temp=State.getInstance().getCurrentEntry();
-      this.promptArea.setText(PROMPT_TEXT+msg+" : "+temp.getTitle()+"\n");
-    }
-
-		else if(msg.equals(State.EVENT_ENTRY_UPDATED)){
-			this.promptArea.clear();
-			temp=State.getInstance().getCurrentEntry();
-			this.promptArea.setText(PROMPT_TEXT+"'"+temp.getTitle()+"' selected\n");
-			this.titleField.setText(temp.getTitle());
-		}
+		if(msg.equals(State.EVENT_ENTRY_UPDATED))
+			this.titleField.setText(
+				State.getInstance().getCurrentEntry().getTitle()
+			);
   }
   
   @FXML

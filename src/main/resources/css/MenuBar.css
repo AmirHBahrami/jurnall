@@ -23,6 +23,9 @@ MenuBarSkin, menu-bar-skin,
     -fx-fill:  -fx-mbtc;
     -fx-background-color: #21273e;
     -fx-padding:16;
+		-fx-text:greenyellow;
+		-fx-fill:greenyellow;
+		-fx-text-fill:greenyellow;
 }
 
 .menu-bar {
@@ -36,6 +39,9 @@ MenuBarSkin, menu-bar-skin,
     -fx-fill: -fx-mbtc;
     -fx-background-color: #21273e;
     -fx-font-size:18;
+		-fx-text:greenyellow;
+		-fx-fill:greenyellow;
+		-fx-text-fill:greenyellow;
 }
 
 .menu-button{
@@ -47,8 +53,9 @@ MenuBarSkin, menu-bar-skin,
 }
 
 .menu{
-	-fx-text-fill:greenyellow;
+	-fx-text:greenyellow;
 	-fx-fill:greenyellow;
+	-fx-text-fill:greenyellow;
 	-fx-background-color: #21273e;
 }
 
@@ -56,4 +63,13 @@ MenuBarSkin, menu-bar-skin,
 .menu-item:focused .label, .menu-item:hovered .label{
     -fx-background-color: greenyellow; 
     -fx-text-fill:#21273e;
+}
+
+.list-view .list-cell, .list-cell, .list-view .text-field-list-cell .text-field{
+	-fx-background-color: black;
+	-fx-text-fill: greenyellow;
+	-fx-text: greenyellow;
+	-fx-fill:black;
+	-fx-control-inner-background: black;
+	-fx-selection-bar:greenyellow ;
 }

@@ -15,17 +15,17 @@
 
 <VBox prefHeight="670.0" prefWidth="907.0" style="-fx-background-color: #006217;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-      <MenuBar style="-fx-font-size: 14; -fx-background-color: #21273e;" stylesheets="@bantherwankfaceheader.css">
+      <MenuBar style="-fx-font-size: 14; -fx-background-color: #21273e; -fx-text-fill: greenyellow; -fx-fill: greenyellow;">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" style="-fx-font-size: 14; -fx-background-color: #21273e; -fx-text-fill: greenyellow; -fx-fill: greenyellow;" text="File">
             <items>
               <MenuItem fx:id="newEntryItem" mnemonicParsing="false" text="new" />
-                  <MenuItem fx:id="saveEntryItem" mnemonicParsing="false" text="save" />
-                  <MenuItem fx:id="exportDecEntryItem" mnemonicParsing="false" text="export decrypted" />
-                  <MenuItem fx:id="closeAppItem" mnemonicParsing="false" text="close" />
+							<MenuItem fx:id="saveEntryItem" mnemonicParsing="false" text="save" />
+							<MenuItem fx:id="exportDecEntryItem" mnemonicParsing="false" text="export decrypted" />
+							<MenuItem fx:id="closeAppItem" mnemonicParsing="false" text="close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" style="-fx-text-fill: greenyellow; -fx-fill: greenyellow;" text="Edit">
+          <Menu style="-fx-text-fill: greenyellow; -fx-fill: greenyellow; -fx-control-inner-background: #566c4f; -fx-prompt-text-fill: greenyellow; -fx-background-color: #21273e;" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
@@ -39,9 +39,11 @@
       </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="920.0" style="-fx-background-color: darkkhaki;" VBox.vgrow="ALWAYS">
          <children>
+						
 						<fx:include source="FileList.fxml" />
 						<fx:include source="EditorArea.fxml" fx:id="entryEditorAreaController"/>
-            <TextField fx:id="usernameField" editable="false" layoutX="14.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="144.0" promptText="Logged In As" style="-fx-control-inner-background: #566c4f; -fx-background-color: #21273e; -fx-alignment: center; -fx-text-fill: greenyellow;" text="AmirH">
+            
+						<TextField fx:id="usernameField" editable="false" layoutX="14.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="144.0" promptText="Logged In As" style="-fx-control-inner-background: #566c4f; -fx-background-color: #21273e; -fx-alignment: center; -fx-text-fill: greenyellow;" text="AmirH">
                <font>
                   <Font name="Cousine Regular" size="22.0" />
                </font>
@@ -49,11 +51,9 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextArea fx:id="promptArea" editable="false" layoutX="14.0" layoutY="545.0" prefHeight="76.0" prefWidth="882.0" promptText="JDiary, encrypt with ease..." style="-fx-background-color: black; -fx-prompt-text-fill: #566c4f; -fx-control-inner-background: #21273e; -fx-text-fill: greenyellow;" wrapText="true">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </TextArea>
+						
+						<fx:include source="PromptArea.fxml" />
+
             <TextField fx:id="titleField" layoutX="165.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="43.0" prefWidth="553.0" promptText="title" style="-fx-control-inner-background: #566c4f; -fx-prompt-text-fill: #566c4f; -fx-background-color: #21273e; -fx-alignment: left; -fx-text-fill: greenyellow;">
                <font>
                   <Font name="Cousine Regular" size="22.0" />
